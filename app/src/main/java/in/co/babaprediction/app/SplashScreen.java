@@ -3,6 +3,7 @@ package in.co.babaprediction.app;
 import android.app.Activity;
 import android.content.Intent;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
@@ -23,6 +24,8 @@ public class SplashScreen extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
+        MediaPlayer mPlayer = MediaPlayer.create(this, R.raw.splashscreenbackgroundmusic);
+        mPlayer.start();
 
 
         super.onCreate(savedInstanceState);
