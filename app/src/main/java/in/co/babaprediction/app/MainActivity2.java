@@ -1,17 +1,31 @@
 package in.co.babaprediction.app;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.Random;
+
 
 public class MainActivity2 extends ActionBarActivity {
+
+    MediaPlayer m;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_activity2);
+
+        int[] song = new int[]{R.raw.a,R.raw.c,R.raw.d,R.raw.e,R.raw.f,R.raw.g,R.raw.h,R.raw.i,R.raw.j};
+
+        Random random = new Random(); // or create a static random field...
+        int songFinal = song[random.nextInt(song.length)];
+        m = MediaPlayer.create(this, songFinal);
+        m.start();
+
+
     }
 
 
