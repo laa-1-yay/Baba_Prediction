@@ -1,6 +1,8 @@
 package in.co.babaprediction.app;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
@@ -45,9 +47,6 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
 
 
-
-
-
                 //delay in ms
                 int DELAY = 1700;
 
@@ -70,10 +69,22 @@ public class MainActivity extends Activity {
             }
 
 
-
-
         });
 
+
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Baba Instructions !");
+        builder.setMessage("Ask any question of your choice about the future, to be answered in Yes/No ");
+        builder.setPositiveButton("Okay", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
+                dialog.dismiss();
+            }
+        });
+
+        builder.show();
 
 
     }
