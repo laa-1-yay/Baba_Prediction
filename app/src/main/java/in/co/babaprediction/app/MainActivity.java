@@ -20,6 +20,7 @@ public class MainActivity extends Activity {
 
     EditText question;
     TextView txt;
+    Button button;
 
 
     @Override
@@ -34,11 +35,46 @@ public class MainActivity extends Activity {
         question = (EditText) findViewById(R.id.editText);
         txt = (TextView)findViewById(R.id.textView);
         final VideoView vv = (VideoView)findViewById(R.id.videoView);
+        vv.setVisibility(vv.INVISIBLE);
         final String f = "android.resource://" + getPackageName() + "/" + R.raw.video;
+
+        button = (Button) findViewById(R.id.a);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+
+
+                //delay in ms
+                int DELAY = 1700;
+
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+                        startActivity(intent);
+                    }
+                }, DELAY);
+
+                vv.setVisibility(vv.VISIBLE);
 
 
                 vv.setVideoURI(Uri.parse(f));
                 vv.start();
+
+
+            }
+
+
+
+
+        });
+
+
 
     }
 
